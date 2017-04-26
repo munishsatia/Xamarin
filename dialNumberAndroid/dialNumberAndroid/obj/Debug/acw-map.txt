@@ -1,0 +1,4 @@
+dialNumberAndroid.MainActivity, dialNumberAndroid;md5acf855549171727021f101320fb2ea35.MainActivity
+dialNumberAndroid.MainActivity, dialNumberAndroid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5acf855549171727021f101320fb2ea35.MainActivity
+dialNumberAndroid.MainActivity;md5acf855549171727021f101320fb2ea35.MainActivity
+dialnumberandroid.MainActivity;md5acf855549171727021f101320fb2ea35.MainActivity
