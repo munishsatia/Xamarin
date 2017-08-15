@@ -1,0 +1,125 @@
+﻿@model HybridApp.Models.Model1
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript">
+
+        // This javascript method calls C# by setting the browser
+        // to a URL with a custom scheme that is registered in C#.
+        // All values are sent to C# as part of the querystring
+        function InvokeCSharpWithFormValues(elm) {
+            var qs = "";
+            var elms = elm.form.elements;
+           
+            for (var i = 0; i < elms.length; i++) {
+                if (elms[i].type != "radio" || (elms[i].type == "radio" & elms[i].checked == true))
+                    qs += "&" + elms[i].name + "=" + elms[i].value;
+            }
+
+            if (elms.length > 0)
+                qs = qs.substring(1);
+
+            location.href = "hybrid:" + elm.name + "?" + qs;
+        }
+
+        // This javascript method is called from C#
+        function SetLabelText(text) {
+            var elm = document.getElementById('labelmessage');
+            elm.innerHTML = text;
+        }
+    </script>
+    <style>
+        .controls label {
+            display: inline-block;
+            width: 90px;
+            height: 20px;
+            text-align: center;
+            vertical-align: top;
+            padding-top: 40px;
+        }
+
+        .controls input {
+            display: block;
+            margin: 0 auto -40px;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" data-theme="b">
+        <form>
+            <div data-role="content">
+                <div>
+                    <pfm-dcf-edit-matrix _nghost-sgu-147="" class="ng-untouched ng-pristine ng-valid">
+                        
+                        <div class="">
+                            <label class="radio-inline" id="labelmessage" style="color:forestgreen">
+                               
+                            </label>
+                            <br/>
+                        </div>
+                        <div class="controls1">
+                            First name: <input type="text" name="fname" id="fname"  /><br>
+                            <br />
+                            <br />
+                        </div>
+                            <div class="controls">
+                                <span>Q1. Are chicks procured from SE-monitored breeder flocks ? </span>
+                                <input type="hidden" name="q1h" value="Q1. Question 1 />
+                                <label class="radio-inline">
+                                    <input type="radio" name="q1" value="yes">Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="q1" value="no">No
+                                </label>
+
+                            </div>
+                            <div class="controls">
+                                <span>Q2. Was pulled environment tested for SE when pullets are 14 to 16 weeks of age ?</span>
+                                <input type="hidden" name="q2h" value="Q2. Question 2" />
+
+                                <br />
+                                <span>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="q2" value="yes">Yes
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="q2" value="no">No
+                                    </label>
+                                </span>
+                            </div>
+                            <div class="controls">
+                                <span>Q3. If Yes, was the testing positive ?</span>
+                                <input type="hidden" name="q3h" value="Q3. Question 3 " />
+                                <br />
+                                <label class="radio-inline">
+                                    <input type="radio" name="q3" value="yes">Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="q3" value="no">No
+                                </label>
+
+                            </div>
+                            <div class="controls">
+                                <span>Q4. If tested positive, were eggs tested within 2 weeks of the start of egg laying?</span>
+                                <input type="hidden" name="q4h" value="Q4. Question 4" />
+                                <br />
+                                <label class="radio-inline">
+                                    <input type="radio" name="q4" value="yes">Yes
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="q4" value="no">No
+                                </label>
+
+                            </div>
+                            
+                            <div>
+                                <br/><br />
+                                <input type="button" name="Save" value="Save" onclick="InvokeCSharpWithFormValues(this)" />
+                            </div>
+</pfm-dcf-edit-matrix>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>	
